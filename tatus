@@ -1,0 +1,59 @@
+warning: in the working copy of 'pom.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/resources/application.properties', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mindex 3fb38f8..d6ace67 100644[m
+[1m--- a/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -34,6 +34,10 @@[m
+ 			<groupId>org.springframework.boot</groupId>[m
+ 			<artifactId>spring-boot-starter-web</artifactId>[m
+ 		</dependency>[m
+[32m+[m		[32m<dependency>[m
+[32m+[m			[32m<groupId>org.springframework.boot</groupId>[m
+[32m+[m			[32m<artifactId>spring-boot-starter-security</artifactId>[m
+[32m+[m		[32m</dependency>[m
+ 		<dependency>[m
+ 			<groupId>org.springframework.boot</groupId>[m
+ 			<artifactId>spring-boot-starter-actuator</artifactId>[m
+[1mdiff --git a/src/main/java/com/example/springboot/FunRestController.java b/src/main/java/com/example/springboot/FunRestController.java[m
+[1mindex c6c981e..4d7e084 100644[m
+[1m--- a/src/main/java/com/example/springboot/FunRestController.java[m
+[1m+++ b/src/main/java/com/example/springboot/FunRestController.java[m
+[36m@@ -1,2 +1,15 @@[m
+[31m-package com.example.springboot;public class FunRestController {[m
+[31m-}[m
+[32m+[m[32mpackage com.example.springboot;[m
+[32m+[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.GetMapping;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.RestController;[m
+[32m+[m
+[32m+[m[32m@RestController[m
+[32m+[m[32mpublic class FunRestController[m
+[32m+[m[32m{[m
+[32m+[m
+[32m+[m[32m    // expose "/" that returns "Hello World"[m
+[32m+[m[32m    @GetMapping("/")[m
+[32m+[m[32m    public String sayHello() {[m
+[32m+[m[32m        return "Hello World!";[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/src/main/resources/application.properties b/src/main/resources/application.properties[m
+[1mindex ae64c68..9cab514 100644[m
+[1m--- a/src/main/resources/application.properties[m
+[1m+++ b/src/main/resources/application.properties[m
+[36m@@ -1 +1,14 @@[m
+ spring.application.name=springboot[m
+[32m+[m
+[32m+[m[32m//actuator[m
+[32m+[m[32mmanagement.endpoints.web.exposure.include=*[m
+[32m+[m[32mmanagement.info.env.enabled=true[m
+[32m+[m[32minfo.app.name=College management System[m
+[32m+[m[32minfo.app.description=This is CRUD App[m
+[32m+[m[32minfo.app.version=1.0.1[m
+[32m+[m[32mmanagement.endpoints.web.exposure.exclude=health,info[m
+[32m+[m
+[32m+[m[32m//security[m
+[32m+[m[32mspring.security.user.name=scott[m
+[32m+[m[32mspring.security.user.password=tiger[m
+[41m+[m
