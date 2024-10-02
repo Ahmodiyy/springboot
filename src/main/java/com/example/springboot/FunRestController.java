@@ -21,7 +21,7 @@ public class FunRestController
 
 
     @Autowired
-    public FunRestController( Coach coach, Example example) {
+    public FunRestController(@Qualifier("cricketCoach") Coach coach, Example example) {
         this.coach = coach;
         this.example = example;
     }
