@@ -16,14 +16,18 @@ public class FunRestController
 
    // @Autowired
     private Coach coach;
+    private Coach anotherCoach;
 
     private Example example;
 
 
     @Autowired
-    public FunRestController(@Qualifier("cricketCoach") Coach coach, Example example) {
+    public FunRestController(@Qualifier("cricketCoach") Coach coach,
+                             @Qualifier("cricketCoach") Coach anotherCoach, Example example) {
         this.coach = coach;
+        this.anotherCoach = anotherCoach;
         this.example = example;
+        System.out.println("is same : "+ coach.equals(anotherCoach));
     }
 
     /**
