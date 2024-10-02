@@ -17,15 +17,19 @@ public class FunRestController
    // @Autowired
     private Coach coach;
     private Coach anotherCoach;
+    private Coach swimCoach;
 
     private Example example;
 
 
     @Autowired
     public FunRestController(@Qualifier("cricketCoach") Coach coach,
-                             @Qualifier("cricketCoach") Coach anotherCoach, Example example) {
+                             @Qualifier("cricketCoach") Coach anotherCoach,
+                             @Qualifier("swim") Coach swimCoach,
+                             Example example) {
         this.coach = coach;
         this.anotherCoach = anotherCoach;
+        this.swimCoach = swimCoach;
         this.example = example;
         System.out.println("is same : "+ coach.equals(anotherCoach));
     }
@@ -45,6 +49,6 @@ public class FunRestController
 
     @GetMapping("/getCoach")
     public String getCoach() {
-        return coach.getDailyWorkout() + " : "+ example.name ;
+        return swimCoach.getDailyWorkout() + " : "+ example.name ;
     }
 }
